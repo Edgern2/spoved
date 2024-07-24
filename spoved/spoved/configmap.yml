@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-configmap
+spec:
+  containers:
+  - name: nginx-configmap
+    image: nginx
+    env:
+    # Define the environment variable
+    - name: my-var
+      valueFrom:
+        configMapKeyRef:
+          name: my-new-configmap
+          # Specify the key associated with the value
+          key: var1
